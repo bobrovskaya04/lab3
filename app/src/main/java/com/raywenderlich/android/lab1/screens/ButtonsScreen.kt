@@ -24,7 +24,8 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.material.*
-
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Favorite
 
 
 @Composable
@@ -85,5 +86,13 @@ fun MyRadioGroup() {
 
 @Composable
 fun MyFloatingActionButton() {
-    //TODO add your code here
+    FloatingActionButton(
+        onClick = {},
+        backgroundColor = colorResource(id = R.color.purple_700),
+        contentColor = Color.White,
+        content = {
+            Icon(Icons.Filled.Favorite, contentDescription ="Test FAB" )
+        }
+    )
+
 }
