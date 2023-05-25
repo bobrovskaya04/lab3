@@ -1,6 +1,7 @@
 package com.raywenderlich.android.lab1.screens
 
 import android.widget.Button
+import android.widget.RadioButton
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -17,8 +18,14 @@ import com.raywenderlich.android.lab1.router.BackButtonHandler
 import com.raywenderlich.android.lab1.router.FundamentalsRouter
 import com.raywenderlich.android.lab1.router.Screen
 import androidx.compose.material.Button
+import androidx.compose.material.RadioButtonDefaults
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
+import androidx.compose.material.*
+
+
 
 @Composable
 fun ExploreButtonsScreen() {
@@ -55,7 +62,25 @@ fun MyButton() {
 
 @Composable
 fun MyRadioGroup() {
-    //TODO add your code here
+    val radioButtons = listOf(0,1,2)
+    val selectedButton = remember { mutableStateOf(radioButtons.first()) }
+
+    Column {
+        radioButtons.forEach{ index ->
+            val isSelected = index == selectedButton.value
+            val colors = RadioButtonDefaults.colors(
+                selectedColor = colorResource(id = R.color.purple_500),
+                unselectedColor = colorResource(id = R.color.black),
+                disabledColor = Color.LightGray
+            )
+
+            RadioButton (
+                colors = colors,
+                selected = isSelected,
+                onClick = { selectedButton.value = index }
+            )
+        }
+    }
 }
 
 @Composable
