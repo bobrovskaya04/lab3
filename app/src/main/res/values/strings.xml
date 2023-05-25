@@ -18,6 +18,7 @@
     <string name="third">третий</string>
     <string name="button_Column">Контейнер Column</string>
     <string name="button_Box">Контейнер Box</string>
+    <string name="button_Surface">Контейнер Surface</string>
 
 
 </resources>
