@@ -13,6 +13,16 @@ import com.raywenderlich.android.lab1.router.FundamentalsRouter
 import com.raywenderlich.android.lab1.router.Screen
 import kotlinx.coroutines.CoroutineScope
 
+import androidx.compose.material.*
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Menu
+
+import androidx.compose.ui.graphics.Color
+
+import androidx.compose.ui.res.stringResource
+
+import kotlinx.coroutines.launch
+
 @Composable
 fun ScaffoldScreen(){
     MyScaffold()
@@ -44,10 +54,35 @@ fun MyScaffold(){
 
 @Composable
 fun MyTopAppBar(scaffoldState: ScaffoldState, scope: CoroutineScope){
+    val drawerState = scaffoldState.drawerState
+
+    TopAppBar(
+        navigationIcon = {
+            IconButton(
+                content = {
+                    Icon(
+                        Icons.Default.Menu,
+                        tint = Color.White,
+                        contentDescription = stringResource(id = R.string.menu)
+                    )
+                },
+                onClick = {
+                    scope.launch { if (drawerState.isClosed) drawerState.open() else drawerState.close() }
+                }
+            )
+        },
+        title = { Text(text = stringResource(id = R.string.MyComposeApp), color = Color.White )},
+        backgroundColor =  colorResource(id = R.color.colorPrimary)
+    )
+
 
 }
 
 @Composable
 fun MyBottomAppBar(){
+    BottomAppBar(
+        content = {},
+        backgroundColor = colorResource(id = R.color.colorPrimary))
 
 }
+

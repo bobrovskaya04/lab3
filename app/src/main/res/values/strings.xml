@@ -20,6 +20,8 @@
     <string name="button_Box">Контейнер Box</string>
     <string name="button_Surface">Контейнер Surface</string>
     <string name="button_Scaffold">Контейнер Scaffold</string>
+    <string name="menu">Меню</string>
+    <string name="MyComposeApp">MyComposeApp</string>
 
 
 </resources>
